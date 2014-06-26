@@ -539,4 +539,13 @@ $(document).ready(function(){
 });
 
 // TEST
-airteams = function () { };
+airteams = function () { 
+
+};
+
+window.airteams = window.airteams || (function (_token) {
+    return {
+        'instance': {},
+        'bootstrap': {}
+    }
+})();
