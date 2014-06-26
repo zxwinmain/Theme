@@ -537,3 +537,6 @@ airteams.settings_share_rend = function (e) {
 $(document).ready(function(){
     airteams.instance_init();
 });
+
+// TEST
+airteams = function () { };
