@@ -1,0 +1,881 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+menu,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  list-style: none;
+}
+html {
+  overflow: hidden;
+}
+html,
+body {
+  background: #ffffff url('../img/bg.png');
+  font: 12px/1.2 "Segoe UI", Tahoma;
+  margin: 0;
+  color: #333;
+  outline: 0;
+}
+a {
+  text-decoration: none;
+  color: #2086bf;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+em {
+  font-style: normal;
+}
+i {
+  width: 15px;
+  height: 14px;
+  float: left;
+  margin: 18px 15px 0 20px;
+  background: #bbb;
+}
+i.dashboard {
+  background: #2681DC;
+}
+i.reports {
+  background: #8A4D25;
+}
+i.plugins {
+  background: #4ACE4F;
+}
+i.customers {
+  background: #D83510;
+}
+i.calendar {
+  background: #4ACE94;
+}
+i.opportunities {
+  background: #FBA623;
+}
+i.cases {
+  background: #CE4AB4;
+}
+.button {
+  display: block;
+  border: 1px solid #0099E6;
+  height: 28px;
+  line-height: 28px;
+  width: 100px;
+  font-family: "Segoe UI Bold", "Segoe UI", Tahoma;
+  text-align: center;
+  text-decoration: none !important;
+  background: #0099E6;
+  color: #fff;
+  transition: all 0.2s;
+}
+.button:hover {
+  background: #08c;
+  border-color: #08c;
+}
+.input,
+.textarea {
+  margin: 0;
+  width: 500px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-family: "Segoe UI", Tahoma;
+  line-height: 20px;
+  color: #383838;
+  background: #fefefe;
+  border: 1px solid #d9d9d9;
+  outline: 0;
+  transition: all 0.2s;
+}
+.input.input_upload,
+.textarea.input_upload {
+  cursor: pointer;
+}
+.input:active,
+.textarea:active,
+.input:focus,
+.textarea:focus {
+  background: #fff;
+  border-color: #aaa;
+}
+.input {
+  padding: 10px;
+  line-height: normal;
+}
+.textarea {
+  resize: none;
+}
+.file_icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background: url('../img/spirit_icons.png') no-repeat 0 -1648px;
+}
+.file_icon.icon_doc,
+.file_icon.icon_docx {
+  background-position-y: -1680px;
+}
+.file_icon.icon_mp3,
+.file_icon.icon_wma {
+  background-position-y: -1712px;
+}
+.file_icon.icon_pdf {
+  background-position-y: -1744px;
+}
+.file_icon.icon_txt {
+  background-position-y: -1776px;
+}
+.file_icon.icon_ppt,
+.file_icon.icon_pptx {
+  background-position-y: -1808px;
+}
+.file_icon.icon_xls,
+.file_icon.icon_xlsx {
+  background-position-y: -1872px;
+}
+.file_icon.icon_zip,
+.file_icon.icon_rar {
+  background-position-y: -1904px;
+}
+#component_mouse {
+  font-size: 12px;
+  line-height: 1em;
+  position: absolute;
+  z-index: 100000;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.6;
+}
+#component_mouse .arrow {
+  left: 50%;
+  margin-left: -5px;
+  position: absolute;
+  top: 0;
+  border-top-color: #000;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-bottom-color: #000;
+}
+#component_mouse .inner {
+  background-color: #000;
+  color: #fff;
+  margin-top: 10px;
+  padding: 4px 6px 4px 6px;
+  text-align: center;
+}
+#component_window_account {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  z-index: 800;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fbfbfb;
+}
+#component_window_account .header {
+  position: relative;
+  padding: 9px 16px;
+  border-bottom: 1px solid #e1e1e1;
+  background-color: #f9f9f7;
+}
+#component_window_account .header strong {
+  line-height: 20px;
+  font-weight: normal;
+  font-family: "Segoe UI Bold", "Segoe UI", Tahoma;
+}
+#component_window_account .header .cancel {
+  position: absolute;
+  top: 7px;
+  right: 14px;
+  font-weight: bold;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px;
+}
+#component_window_account .header .cancel:hover {
+  color: #808080;
+}
+#component_window_account .body {
+  position: relative;
+  overflow: hidden;
+  zoom: 1;
+  width: 260px;
+}
+#component_window_account .body .basic {
+  *zoom: 1;
+  background: #eee;
+}
+#component_window_account .body .basic:before,
+#component_window_account .body .basic:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#component_window_account .body .basic:after {
+  clear: both;
+}
+#component_window_account .body .basic .avatar {
+  float: left;
+  margin: 10px 5px 10px 16px;
+  width: 50px;
+  height: 50px;
+  background: #e7e7df;
+}
+#component_window_account .body .basic .info {
+  float: left;
+  margin: 10px;
+}
+#component_window_account .body .basic .info h3 {
+  margin: 6px 0 8px;
+}
+#component_window_account .body .basic .info p {
+  font-size: 12px;
+  color: #aaa;
+}
+#component_window_account .body .menu li {
+  border-top: solid 1px #e1e1e1;
+}
+#component_window_account .body .menu li a {
+  display: block;
+  cursor: pointer;
+  color: #444;
+  padding: 6px 16px;
+  line-height: 200%;
+  background: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+#component_window_account .body .menu li a:hover {
+  background-color: #f7f7f7;
+  color: #2086bf;
+}
+#component_window_qr {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: none;
+}
+#component_head {
+  background: #fff;
+  border-bottom: 1px solid #d9d9d9;
+  height: 49px;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  font-family: "Segoe UI Bold", "Segoe UI", Tahoma;
+}
+#component_head .logo {
+  background-image: url('../img/spirit.png');
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  position: absolute;
+  top: 11px;
+  left: 20px;
+  width: 125px;
+  height: 24px;
+}
+#component_head .logo strong {
+  display: none;
+}
+#component_head .button {
+  position: absolute;
+  top: 9px;
+  left: 190px;
+  width: 120px;
+}
+#component_head .search {
+  position: absolute;
+  left: 320px;
+  top: 2px;
+  width: 600px;
+}
+#component_head .search input {
+  border: 1px solid #d9d9d9;
+  background: #eee;
+  padding: 6px 8px 7px 8px;
+  margin-top: 7px;
+  outline: none;
+  width: 100%;
+  transition: all 0.2s;
+  line-height: normal;
+  font-size: 12px;
+  font-family: "Segoe UI", Tahoma;
+}
+#component_head .search input:active,
+#component_head .search input:focus {
+  background: #fff;
+  border-color: #aaa;
+}
+#component_head .search_results {
+  position: absolute;
+  top: 39px;
+  left: 320px;
+  width: 616px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#component_head .search_results li {
+  line-height: 1.4em;
+}
+#component_head .search_results li a {
+  border: 1px solid #d9d9d9;
+  border-bottom-color: #eee;
+  border-top: 0;
+  width: 100%;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  background-color: #fff;
+  text-decoration: none;
+}
+#component_head .search_results li a:hover {
+  background: #f7f7f7;
+}
+#component_head .search_results li a em {
+  margin: 0 10px 0 8px;
+  color: #666;
+}
+#component_head .search_results li:last-child a {
+  border-bottom-color: #d9d9d9;
+}
+#component_head .function {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+#component_head .function li {
+  float: left;
+}
+#component_head .function li a {
+  display: block;
+  height: 49px;
+  line-height: 49px;
+  border-left: 1px solid #d9d9d9;
+  padding: 0 20px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+#component_head .function li a:hover,
+#component_head .function li a.active {
+  color: #08c;
+  background: #f7f7f7;
+}
+#component_head .function li.settings a {
+  *zoom: 1;
+  padding-right: 23px;
+}
+#component_head .function li.settings a:before,
+#component_head .function li.settings a:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#component_head .function li.settings a:after {
+  clear: both;
+}
+#component_head .function li.settings a img {
+  float: left;
+  margin: 14px 10px 0 0;
+  width: 21px;
+  height: 21px;
+}
+#component_head .function li.settings a span {
+  float: left;
+}
+#component_menu {
+  background: #fcfcfc;
+  position: absolute;
+  border-right: 1px solid #d9d9d9;
+  z-index: 30;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 190px;
+}
+#component_menu .link li a {
+  *zoom: 1;
+  display: block;
+  height: 49px;
+  line-height: 50px;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s;
+  font-family: "Segoe UI Bold", "Segoe UI", Tahoma;
+}
+#component_menu .link li a:before,
+#component_menu .link li a:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#component_menu .link li a:after {
+  clear: both;
+}
+#component_menu .link li a em {
+  float: right;
+  margin-right: 20px;
+  color: #808080;
+}
+#component_menu .link li a:hover {
+  background-color: #f7f7f7;
+}
+#component_menu .link li a.active {
+  background: #f7f7f7;
+  color: #08c;
+}
+#component_menu .bottom {
+  *zoom: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 190px;
+  border-top: 1px solid #d9d9d9;
+}
+#component_menu .bottom:before,
+#component_menu .bottom:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#component_menu .bottom:after {
+  clear: both;
+}
+#component_menu .bottom a {
+  font-size: 12px;
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  width: 94px;
+  background: url('../img/english.png') no-repeat 37px center;
+  color: #333;
+  border-right: 1px solid #eee;
+  transition: all 0.2s;
+}
+#component_menu .bottom a.chinese_simplified {
+  background-image: url('../img/chinese_simplified.png');
+}
+#component_menu .bottom a.chinese_traditional {
+  background-image: url('../img/chinese_traditional.png');
+}
+#component_menu .bottom a:hover,
+#component_menu .bottom a.active {
+  background-color: #f7f7f7;
+}
+#component_menu .bottom li {
+  float: left;
+}
+#component_menu .bottom li:last-child a {
+  border: 0;
+}
+#workspace .header {
+  position: absolute;
+  top: 50px;
+  left: 190px;
+  right: 0;
+  border-bottom: 1px solid #d9d9d9;
+  height: 49px;
+  background: #f7f7f7;
+}
+#workspace .header h1 {
+  line-height: 50px;
+  font-size: 12px;
+  font-family: "Segoe UI Bold", "Segoe UI", Tahoma;
+}
+#workspace .main {
+  position: absolute;
+  top: 100px;
+  left: 190px;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+#workspace .main.scrool {
+  overflow-y: scroll;
+}
+#workspace .main .container {
+  *zoom: 1;
+  position: relative;
+}
+#workspace .main .container:before,
+#workspace .main .container:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#workspace .main .container:after {
+  clear: both;
+}
+#workspace .main .container .panel_full {
+  margin: 20px;
+}
+#workspace .main .container .panel_left {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  margin-bottom: 15px;
+  width: 65%;
+}
+#workspace .main .container .panel_left .panel_wrapper .content {
+  padding: 0;
+}
+#workspace .main .container .panel_right {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  margin-bottom: 15px;
+  width: 30%;
+}
+#workspace .main .container .panel_wrapper {
+  background: #fff;
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+}
+#workspace .main .container .panel_wrapper .title {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+}
+#workspace .main .container .panel_wrapper .content {
+  padding: 0 20px 15px 20px;
+}
+#workspace .main .container .panel_wrapper .content p {
+  line-height: 22px;
+  color: #666;
+}
+#workspace .main .container .form {
+  margin: 0 0 10px 0;
+}
+#workspace .main .container .form_actions {
+  padding: 15px 0 15px 160px;
+  border-top: 1px solid #eee;
+}
+#workspace .main .container .form_section {
+  *zoom: 1;
+  border-top: 1px solid #f3f3f3;
+}
+#workspace .main .container .form_section:before,
+#workspace .main .container .form_section:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#workspace .main .container .form_section:after {
+  clear: both;
+}
+#workspace .main .container .form_section label {
+  float: left;
+  text-align: right;
+  width: 120px;
+  margin-right: 20px;
+  height: 60px;
+  line-height: 60px;
+  padding: 0 10px;
+  color: #666;
+}
+#workspace .main .container .form_section .input_text {
+  float: left;
+  width: 420px;
+  font-size: 12px;
+  padding: 6px 10px;
+  margin-top: 16px;
+}
+#workspace .main .container .form_section .textarea {
+  height: 100px;
+  width: 420px;
+  margin: 16px 0;
+}
+#workspace .main_stand {
+  top: 50px;
+}
+#workspace .main_stand .container .panel_left {
+  top: 20px;
+}
+#workspace .main_stand .container .panel_right {
+  top: 20px;
+}
+#component_support #tel .content .number {
+  color: #08c;
+  font-size: 18px;
+}
+#component_apps .panel_left .panel_wrapper .content {
+  padding: 15px !important;
+  padding-bottom: 2px !important;
+}
+#component_apps .app {
+  padding: 30px 20px 30px 150px;
+  background-color: #f7f7f7;
+  margin-bottom: 15px;
+}
+#component_apps .app .name {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+#component_apps .app .download {
+  margin-top: 3px;
+  position: relative;
+}
+#component_apps .app.ios {
+  background-image: url('../img/spirit.png');
+  background-repeat: no-repeat;
+  background-position: 40px -43px;
+}
+#component_apps .app.android {
+  background-image: url('../img/spirit.png');
+  background-repeat: no-repeat;
+  background-position: 40px -185px;
+}
+#dashboard .event ul {
+  padding: 10px 20px;
+  padding-top: 0;
+}
+#dashboard .event ul li {
+  *zoom: 1;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+#dashboard .event ul li:before,
+#dashboard .event ul li:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#dashboard .event ul li:after {
+  clear: both;
+}
+#dashboard .event ul li .head {
+  float: left;
+  margin: 10px 0;
+}
+#dashboard .event ul li .head img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+#dashboard .event ul li .message {
+  float: left;
+  margin: 10px 20px 0 10px;
+  width: 80%;
+}
+#dashboard .event ul li .message .message_title {
+  line-height: 1em;
+  margin-top: 3px;
+}
+#dashboard .event ul li .message .message_note {
+  width: 500px;
+  background: #f6f6f6;
+  border: 1px solid #e9e9e9;
+  margin-top: 10px;
+}
+#dashboard .event ul li .message .message_note p {
+  padding: 10px 13px 5px 13px;
+  color: #333 !important;
+  line-height: 1.7em !important;
+}
+#dashboard .event ul li .message .message_note .message_note_link {
+  display: inline-block;
+  margin: 0 13px 13px 13px;
+}
+#dashboard .event ul li .message .message_file {
+  width: 474px;
+  background: #f6f6f6;
+  border: 1px solid #e9e9e9;
+  margin-top: 10px;
+  padding: 10px 13px;
+  padding-top: 6px;
+}
+#dashboard .event ul li .message .message_file .file_list .file_container {
+  *zoom: 1;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  position: relative;
+  margin: 10px 10px 10px 0;
+  float: none;
+  padding: 0;
+  line-height: 16px;
+}
+#dashboard .event ul li .message .message_file .file_list .file_container:before,
+#dashboard .event ul li .message .message_file .file_list .file_container:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#dashboard .event ul li .message .message_file .file_list .file_container:after {
+  clear: both;
+}
+#dashboard .event ul li .message .message_file .file_list .file_container .file_icon {
+  margin-right: 5px;
+  float: left;
+}
+#dashboard .event ul li .message .message_file .file_list .file_container .file_link {
+  overflow: hidden;
+  zoom: 1;
+}
+#dashboard .event ul li .message .message_file .image_list {
+  *zoom: 1;
+  width: 90%;
+}
+#dashboard .event ul li .message .message_file .image_list:before,
+#dashboard .event ul li .message .message_file .image_list:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#dashboard .event ul li .message .message_file .image_list:after {
+  clear: both;
+}
+#dashboard .event ul li .message .message_file .image_list .image_container {
+  float: left;
+  margin: 6px 10px 0 0;
+}
+#dashboard .event ul li .message .message_file .image_list .image_container a {
+  padding: 5px 5px 1px 5px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e9e9e9;
+  overflow: hidden;
+}
+#dashboard .event ul li .message .message_file .image_list .image_container a:hover {
+  border-color: #ccc;
+}
+#dashboard .event ul li .message .message_file .image_list .image_container a img {
+  width: 80px;
+  height: 80px;
+}
+#dashboard .event ul li .message .message_content {
+  margin-top: 8px;
+  color: #999;
+}
+#dashboard .event ul li .message .message_content a {
+  color: #999;
+}
+#dashboard .event ul li .message .message_content a:hover {
+  color: #444;
+}
+#dashboard .event ul li.fliter {
+  padding: 20px 0;
+}
+#dashboard .event ul li.fliter a {
+  background: #eee;
+  color: #777;
+  padding: 5px 8px;
+  display: inline-block;
+  text-decoration: none;
+}
+#dashboard .event ul li.fliter a:hover {
+  background: #777;
+  color: #fff;
+}
+#dashboard .event ul li.fliter a.disabled {
+  background: #eee;
+  color: #777;
+  cursor: default;
+}
+#dashboard .event ul li.more {
+  border: 0;
+  padding-top: 20px;
+}
+#dashboard .event ul li.more a {
+  width: 100%;
+  background: #f6f6f6;
+  border-color: #f6f6f6;
+  color: #444;
+  padding: 2px 0;
+}
+#dashboard .event ul li.more a:hover {
+  background: #e7e7e7;
+  border-color: #e7e7e7;
+}
+#dashboard .task ul li,
+#dashboard .todo ul li,
+#dashboard .favorite ul li,
+#dashboard .history ul li {
+  line-height: 2em;
+}
+#dashboard .task ul li em,
+#dashboard .todo ul li em,
+#dashboard .favorite ul li em,
+#dashboard .history ul li em {
+  color: #999;
+  margin-right: 5px;
+}

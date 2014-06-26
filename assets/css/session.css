@@ -1,0 +1,208 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+menu,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  list-style: none;
+}
+html {
+  overflow: hidden;
+}
+html,
+body,
+input,
+select {
+  background: #fff;
+  font: 12px/1.2 "Segoe UI", Tahoma;
+  margin: 0;
+  color: #333;
+  outline: 0;
+}
+.input,
+.textarea,
+select {
+  margin: 0;
+  width: 280px;
+  padding: 8px 10px;
+  display: block;
+  line-height: 20px;
+  color: #383838;
+  background: #fefefe;
+  border: 1px solid #d9d9d9;
+  outline: 0;
+}
+.input:active,
+.textarea:active,
+select:active,
+.input:focus,
+.textarea:focus,
+select:focus {
+  background: #fff;
+  border-color: #aaa;
+}
+.input {
+  padding: 10px;
+  line-height: normal;
+}
+a {
+  text-decoration: none;
+  color: #08c;
+  vertical-align: baseline;
+  cursor: pointer;
+}
+a:hover {
+  text-decoration: underline;
+}
+.button {
+  display: block;
+  border: 1px solid #0099E6;
+  height: 32px;
+  line-height: 26px !important;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  text-decoration: none !important;
+  background: #0099E6;
+  color: #fff;
+}
+.button.form {
+  line-height: normal;
+}
+.button:hover {
+  background: #08c;
+  border-color: #08c;
+}
+#container {
+  *zoom: 1;
+  width: 980px;
+  margin: 120px auto 0 auto;
+}
+#container:before,
+#container:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+#container:after {
+  clear: both;
+}
+#side {
+  float: left;
+  width: 475px;
+}
+#side .wrapper {
+  background: #00a1e9 url('../img/session.jpg') no-repeat;
+  height: 490px;
+}
+#side .wrapper h1 {
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "wf_SegoeUILight", "wf_SegoeUI", "Segoe UI Light", "Segoe WP Light", "Segoe UI", "Segoe", "Segoe WP", "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica", "Tahoma", "Verdana", "Arial", "sans-serif";
+  color: #fff;
+  padding: 25px 0 0 25px;
+}
+#content {
+  float: right;
+  width: 420px;
+}
+#content h1 {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+#content h2 {
+  font-weight: normal;
+  color: #888;
+  width: 350px;
+  line-height: 1.5em;
+}
+#content form {
+  margin-top: 20px;
+}
+#content form select {
+  border: 1px solid #d9d9d9;
+  height: 37px;
+  line-height: 26px !important;
+  margin-bottom: 15px;
+}
+#content .input {
+  margin-bottom: 15px;
+}
+#content .line {
+  margin-top: 35px;
+}
+#content .error {
+  display: block;
+  color: #ea2323;
+  font-style: normal;
+  margin-top: 10px;
+}

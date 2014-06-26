@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>正在加载中...</title>
+        <link href="/assets/css/base.css" rel="stylesheet">
+    </head>
+    <body>
+        <script type="text/javascript">
+            window.airteams = window.airteams || {
+                'title': 'AirTeams',
+                'settings': {
+                    'apiRoot': 'http://beta.airteams.com/api/',
+                    'apiToken': 'fa8f67589da180cafcb123ca8aa2f212'
+                }
+            };
+        </script>
+
+        <div id="component_window_wait" style="position: fixed; 
+                              z-index: 999; 
+                              background: #fff url('/assets/img/loading.gif') no-repeat center center; 
+                              width: 100%; 
+                              height: 100%;"></div>
+        <div id="component_window_wait_workspace" style="position: fixed; 
+                              display: none;
+                              left: 211px;
+                              top: 50px;
+                              bottom: 0;
+                              right: 0;
+                              z-index: 700; 
+                              background: url('/assets/img/loading_workspace.gif') no-repeat center center;"></div>
+        <div id="component_window_account" data-window="false" data-close="component_window_account_remove"></div>
+        <div id="component_window_qr" onclick="$(this).hide()"></div>
+        <div id="component_head"></div>
+        <div id="component_menu"></div>
+        <div id="workspace">
+            <div class="header" style="display: none"></div>
+            <div class="main"><div class="container"></div></div>
+        </div>
+
+        <!-- TEMPLETS -->
+        <script id="templet_component_head" type="text/x-handlebars-template">
+            <a class="logo" href="/"><strong>AirTeams</strong></a>
+            <a class="button" data-method="customers_new">{{I1001}}</a>
+            <div class="search">
+                <input id="component_search_input" name="search" type="text" placeholder="{{I1002}}" >
+            </div>
+            <ul id="component_search_results" data-window="false" data-close="component_search_results_remove" class="search_results"></ul>
+            <ul class="function">
+                <li><a data-method="component_support_rend">{{I1003}}</a></li>
+                <li><a data-method="component_apps_rend">{{I1004}}</a></li>
+                <li class="settings"><a data-method="component_window_account_rend"><img class="avatar" src="{{USER_HEAD}}"><span>{{USER_NAME}}</span></a></li>
+            </ul>
+        </script>
+        <script id="templet_component_menu" type="text/x-handlebars-template">
+            <ul class="link">
+                <li><a data-method="dashboard_rend"><i class="dashboard"></i><span>{{I8001}}</span></a></li>
+                <li><a data-method="customers_rend"><i class="customers"></i><span>{{I8003}}</span></a></li>
+                <li><a data-method="calendar_rend"><i class="calendar"></i><span>{{I8004}}</span></a></li>
+                <li><a data-method="opportunities_rend"><i class="opportunities"></i><span>{{I8005}}</span></a></li>
+                <li><a data-method="cases_rend"><i class="cases"></i><span>{{I8006}}</span></a></li>
+                <li><a data-method="reports_rend"><i class="reports"></i><span>{{I8008}}</span></a></li>
+                <li><a data-method="plugins_rend"><i class="plugins"></i><span>{{I8007}}</span></a></li>
+            </ul>
+            <ul class="bottom">
+                <li><a data-method="component_language" data-language="en" class="english"></a></li>
+                <li><a data-method="component_language" data-language="zh-cn" class="chinese_simplified"></a></li>
+            </ul>
+        </script>
+        <script id="templet_component_window_account" type="text/x-handlebars-template">
+            <div class="header">
+                <strong>{{I1011}}</strong>
+                <a class="cancel" data-method="component_window_account_remove">×</a>
+            </div>
+            <div class="body">
+                <div class="basic">
+                    <img class="avatar" src="{{USER_HEAD}}">
+                    <div class="info">
+                        <h3>{{USER_NAME}}</h3>
+                        <p>{{USER_EMAIL}}</p>
+                    </div>
+                </div>
+                <ul class="menu">
+                    <li><a data-method="settings_personal_rend">{{I1012}}</a></li>
+                    <li><a data-method="settings_teams_rend">{{I1013}}</a></li>
+                    <li><a data-method="settings_share_rend">{{I1014}}</a></li>
+                    <li><a data-method="component_session_delete">{{I1015}}</a></li>
+                </ul>
+            </div>
+        </script>
+        <script id="templet_component_support" type="text/x-handlebars-template">
+            <div class="header">
+                <h1><i></i> {{I1003}}</h1>
+            </div>
+            <div id="component_support" class="main scrool">
+                <div class="container">
+                    <div class="panel_left">
+                        <div class="panel_wrapper">
+                            <div class="title">{{I1016}}</div>
+                            <div class="content">
+                                <div class="form">
+                                    <div class="form_section">
+                                        <label>{{I1017}}</label>
+                                        <input class="input input_text" type="text" />
+                                    </div>
+                                    <div class="form_section">
+                                        <label>{{I1018}}</label>
+                                        <input class="input input_text" type="text" />
+                                    </div>
+                                    <div class="form_section">
+                                        <label>{{I1019}}</label>
+                                        <input class="input input_text" type="text" />
+                                    </div>
+                                    <div class="form_section">
+                                        <label>{{I1020}}</label>
+                                        <textarea class="textarea"></textarea>
+                                    </div>
+                                    <div class="form_section">
+                                        <label>{{I1021}}</label>
+                                        <input class="input input_text input_upload" type="text" placeholder="{{I1022}}" disabled />
+                                    </div>
+                                    <div class="form_actions">
+                                        <a href="#" class="button">{{I1023}}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel_right">
+                        <div class="panel_wrapper">
+                            <div class="title">{{I1024}}</div>
+                            <div class="content">
+                                <p>{{I1025}} <a href="http://support.airteams.com" target="_blank">{{I1026}}</a> {{I1027}}</p>
+                            </div>
+                        </div>
+                        <div id="tel" class="panel_wrapper">
+                            <div class="title">{{I1028}}</div>
+                            <div class="content"><p class="number">400-998-5838</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script id="templet_component_apps" type="text/x-handlebars-template">
+            <div class="header">
+                <h1><i></i> {{I1029}}</h1>
+            </div>
+            <div id="component_apps" class="main scrool">
+                <div class="container">
+                    <div class="panel_left">
+                        <div class="panel_wrapper">
+                            <div class="content">
+                                <div class="app ios">
+                                    <div class="name">AirTeams for iOS (iPhone)</div>
+                                    <p>{{I1030}} : 1.3</p>
+                                    <p>{{I1031}} : 2014-04-21</p>
+                                    <p class="download"><a href="https://itunes.apple.com/us/app/airteams/id838839212" target="_blank">{{I1032}}</a>&nbsp;&nbsp;&nbsp;{{I1033}} : AirTeams</p>
+                                </div>
+                                <div class="app android">
+                                    <div class="name">AirTeams for Android</div>
+                                    <p>{{I1030}} : 1.1</p>
+                                    <p>{{I1031}} : 2014-04-15</p>
+                                    <p class="download"><a href="http://oss.airteams.com/application/airteams_1.1.apk" target="_blank">{{I1034}}</a>&nbsp;&nbsp;&nbsp;<a data-method="component_apps_qr_rend" data-link="/assets/img/qr_android_1.1.png">{{I1035}}</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel_right">
+                        <div class="panel_wrapper">
+                            <div class="title">{{I1036}}</div>
+                            <div class="content">
+                                <p>AirTeams for iOS (iPad)</p>
+                                <p>AirTeams for Mac</p>
+                                <p>AirTeams for Windows Phone</p>
+                                <p>AirTeams for Windows 8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script id="templet_settings_personal" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i></i> {{I1012}}</h1>
+            </div>
+            <div id="dashboard" class="main scrool">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_settings_teams" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i></i> {{I1013}}</h1>
+            </div>
+            <div id="dashboard" class="main scrool">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_settings_share" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i></i> {{I1014}}</h1>
+            </div>
+            <div id="dashboard" class="main scrool">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_dashboard" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="dashboard"></i> {{I8001}}</h1>
+            </div>
+            <div id="dashboard" class="main scrool">
+                <div class="container">
+                    <div class="panel_left">
+                        <div class="panel_wrapper event">
+                            <div class="content">
+                                <ul>
+                                    <li class="fliter">
+                                        <a href="#" class="disabled">正在显示所有活动</a>
+                                    </li>
+                                    <li class="more">
+                                        <a href="#" class="button" data-loading="true">{{I8009}} ...</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel_right">
+                        <div class="panel_wrapper todo">
+                            <div class="title">我的待办任务</div>
+                            <div class="content">
+                                <ul>
+                                    <li class="empty"><em>暂时还没有任何任务</em> <a href="#">添加一个?</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel_wrapper favorite">
+                            <div class="title">我关注的内容</div>
+                            <div class="content">
+                                <ul>
+                                    <li class="empty"><em>暂时还没有关注任何内容</em></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel_wrapper history">
+                            <div class="title">最近浏览记录</div>
+                            <div class="content">
+                                <ul>
+                                    <li><em>机构</em> <a href="#">AirTeams</a></li>
+                                    <li><em>个人</em> <a href="#">Winmain Yao</a></li>
+                                    <li><em>任务</em> <a href="#">Create a New Teams For Development</a></li>
+                                    <li><em>机会</em> <a href="#">2013年Q3季度广告案</a></li>
+                                    <li><em>事件</em> <a href="#">由于发票问题产生退款</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script id="templet_dashboard_events_item" type="text/x-handlebars-template">
+            <li data-id="{{DATA_ID}}">
+                <div class="head"><a data-method="{{HEAD_METHOD}}" data-relation="{{HEAD_RELATION}}"><img src="{{HEAD_IMAGE}}"></a></div>
+                <div class="message">
+                    <div class="message_title">
+                        <a data-method="{{FROM_METHOD}}" data-relation="{{FROM_RELATION}}">{{FROM_NAME}}</a> {{BODY_CONTENT}}<span class="relation"> : <a data-method="{{LINK_METHOD}}" data-relation="{{LINK_RELATION}}" class="message_relation">{{LINK_NAME}}</a></span>
+                    </div>
+                    <div class="message_content">
+                        <a data-method="dashboard_events_fliter_model" data-relation="{{FLITER_MODEL}}" class="message_model">{{MODEL}}</a> {{MESSAGE_BY}} <a data-method="dashboard_events_fliter_user" data-relation="{{USER_ID}}" class="message_user">{{USER_NAME}}</a>, {{MESSAGE_CAME}} <a data-method="dashboard_events_fliter_time" data-relation="{{MESSAGE_TIME_CODE}}" class="message_time" data-mouse="{{MESSAGE_TIME_FULL}}">{{MESSAGE_TIME}}</a> {{MESSAGE_FROM}} <a data-method="dashboard_events_fliter_device" data-relation="{{MESSAGE_DEVICE_CODE}}" class="message_app">{{MESSAGE_DEVICE}}</a>
+                    </div>
+                    <div class="message_note">
+                        <p>{{NOTE_CONTENT}}</p>
+                        <a data-method="note_rend" data-relation="{{NOTE_RELATION}}" class="message_note_link">{{NOTE_LINK}}</a>
+                    </div>
+                    <div class="message_file">
+                        <div class="file_list"></div>
+                        <div class="image_list"></div>
+                    </div>
+                </div>
+            </li>
+        </script>
+        <script id="templet_dashboard_events_item_file" type="text/x-handlebars-template">
+            <div class="file_container">
+                <div class="file_icon {{FILE_CLASS}}"></div>
+                <div class="file_link"><a data-method="file_rend" data-relation="{{FILE_RELATION}}">{{FILE_NAME}}</a></div>
+            </div>
+        </script>
+        <script id="templet_dashboard_events_item_image" type="text/x-handlebars-template">
+            <div class="image_container">
+                <a data-method="file_rend" data-relation="{{FILE_RELATION}}"><img src="{{FILE_URL}}" width="80"></a>
+            </div>
+        </script>
+        <script id="templet_customers" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="customers"></i> {{I8003}}</h1>
+            </div>
+            <div class="main">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_calendar" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="calendar"></i> {{I8004}}</h1>
+            </div>
+            <div class="main">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_opportunities" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="opportunities"></i> {{I8005}}</h1>
+            </div>
+            <div class="main">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_cases" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="cases"></i> {{I8006}}</h1>
+            </div>
+            <div class="main">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_plugins" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="plugins"></i> {{I8007}}</h1>
+            </div>
+            <div class="main">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <script id="templet_reports" type="text/x-handlebars-template">  
+            <div class="header">
+                <h1><i class="reports"></i> {{I8008}}</h1>
+            </div>
+            <div class="main">
+                <div class="container">
+                </div>
+            </div>
+        </script>
+        <!-- // TEMPLETS -->
+
+        <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.placeholder.js"></script>
+        <script type="text/javascript" src="/assets/js/handlebars-v1.3.0.js"></script>
+        <script type="text/javascript" src="/assets/js/language-zh-cn.js"></script>
+        <script type="text/javascript" src="/assets/js/base.js"></script>
+
+    </body>
+</html>
